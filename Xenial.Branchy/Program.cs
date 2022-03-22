@@ -7,6 +7,8 @@ using static SimpleExec.Command;
 
 try
 {
+    Console.CancelKeyPress += (s, e) => Environment.Exit(0);
+
     var (branchesString, errors) = await ReadAsync("git", "branch", encoding: Encoding.UTF8);
     HandleError(errors);
     var (branch, error) = await ReadAsync("git", "branch --show-current", encoding: Encoding.UTF8);
@@ -24,6 +26,12 @@ try
     AnsiConsole.MarkupLine($"[grey]You are currently on branch [green]{branch.EscapeMarkup()}[/][/]");
     AnsiConsole.MarkupLine($"[grey]Press [silver]Ctrl+C[/] to exit at any time.[/]");
     AnsiConsole.WriteLine();
+
+    if (branches.Length <= 0)
+    {
+        AnsiConsole.MarkupLine($"[grey]There is currently [silver]no other branches[/]. So there is nothing to switch to [silver]~(* . *)~[/][/]");
+        return 0;
+    }
 
     var newBranch = AnsiConsole.Prompt(
         new SelectionPrompt<string>()
@@ -79,6 +87,9 @@ try
     }
 
     AnsiConsole.MarkupLine($"[grey][green]Switched[/] to branch [green]{newBranch.EscapeMarkup()}[/][/]");
+
+    AnsiConsole.MarkupLine("[green]\\(^ . ^)/[/]");
+
 
     return 0;
 }
