@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Xenial.Branchy": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\f\\git\\Xenial.Framework"
+    }
+  }
+}

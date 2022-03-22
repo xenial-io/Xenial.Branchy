@@ -8,7 +8,7 @@
 	<GenerateDocumentationFile>false</GenerateDocumentationFile>
 	<IsPackable>true</IsPackable>
 	<PackAsTool>true</PackAsTool>
-	<ToolCommandName>branch</ToolCommandName>
+	<ToolCommandName>branchy</ToolCommandName>
 	<NoWarn>CA2007;$(NoWarn)</NoWarn>
 	<SignAssembly>False</SignAssembly>
     <LangVersion>preview</LangVersion>
