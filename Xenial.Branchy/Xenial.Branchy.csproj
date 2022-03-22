@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -12,12 +13,28 @@
 	<NoWarn>CA2007;$(NoWarn)</NoWarn>
 	<SignAssembly>False</SignAssembly>
     <LangVersion>preview</LangVersion>
-    <Version>1.0.0</Version>
+
+    <Copyright>Copyright $([System.Char]::ConvertFromUtf32(169)) Xenial, Manuel Grundner 2019-$([System.DateTime]::Today.ToString('yyyy'))</Copyright>
+    <Authors>Xenial, Manuel Grundner</Authors>
+    <PackageIcon>icon-64x64.png</PackageIcon>
+    <PackageIconUrl>https://blog.delegate.at/img/favicon.ico</PackageIconUrl>
+    <PackageTags>Xenial Git Branch Branchy Global Tool </PackageTags>
+    <Description>Branchy is a dotnet global tool to help managing and switching between git branches.</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="SimpleExec" Version="9.1.0" />
     <PackageReference Include="Spectre.Console" Version="0.43.0" />
   </ItemGroup>
-
+  
+  <ItemGroup>
+    <None Include="..img\icon-64x64.png" Pack="true" PackagePath="\" Visible="false" />
+    <None Include="..\LICENSE.md" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectCapability Include="DynamicDependentFile" />
+    <ProjectCapability Include="DynamicFileNesting" />
+  </ItemGroup>
+  
 </Project>
