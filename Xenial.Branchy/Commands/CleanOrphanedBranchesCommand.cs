@@ -54,16 +54,14 @@ internal class CleanOrphanedBranchesCommand : AsyncCommand<CleanOrphanedBranches
         }
 
         var choice = new MultiSelectionPrompt<string>()
-                .Title("Which [green]orphaned branches[/] do you want to delete?")
-                .NotRequired() // Not required to have a favorite fruit
-                .PageSize(10)
-                .MoreChoicesText("[grey](Move up and down to reveal more branches)[/]")
-                .InstructionsText(
-                    "[grey](Press [blue]<space>[/] to toggle a branch, " +
-                    "[green]<enter>[/] to accept)[/]")
-                .AddChoices(
-                    branches
-        );
+            .Title("Which [green]orphaned branches[/] do you want to delete?")
+            .NotRequired() // Not required to have a favorite fruit
+            .PageSize(10)
+            .MoreChoicesText("[grey](Move up and down to reveal more branches)[/]")
+            .InstructionsText(
+                "[grey](Press [blue]<space>[/] to toggle a branch, " +
+                "[green]<enter>[/] to accept)[/]")
+            .AddChoices(branches);
 
         foreach (var b in branches)
         {
@@ -78,7 +76,7 @@ internal class CleanOrphanedBranchesCommand : AsyncCommand<CleanOrphanedBranches
             return 0;
         }
 
-        AnsiConsole.MarkupLine($"You are about to delete [red]{"branch".ToQuantity(orphanedBranches.Count)}[/] ([green]local[/])");
+        AnsiConsole.MarkupLine($"You are about to delete [red]{"branch".ToQuantity(orphanedBranches.Count, ShowQuantityAs.Words)}[/] ([green]local[/])");
 
         AnsiConsole.WriteLine();
 
@@ -103,7 +101,7 @@ internal class CleanOrphanedBranchesCommand : AsyncCommand<CleanOrphanedBranches
             await RunAsync("git", $"branch -d {orphanedBranch}");
         }
 
-        AnsiConsole.MarkupLine($"[grey]Deleted [green]{orphanedBranches.Count}[/] local branches.[/]");
+        AnsiConsole.MarkupLine($"[grey]Deleted [green strikethrough]{"branch".ToQuantity(orphanedBranches.Count, ShowQuantityAs.Words)}[/] ([green]local[/]).[/]");
 
         AnsiConsole.MarkupLine("[green]\\(^ . ^)/[/]");
 
