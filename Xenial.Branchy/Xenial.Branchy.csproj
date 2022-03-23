@@ -20,6 +20,11 @@
     <PackageIconUrl>https://blog.delegate.at/img/favicon.ico</PackageIconUrl>
     <PackageTags>Xenial Git Branch Branchy Global Tool </PackageTags>
     <Description>Branchy is a dotnet global tool to help managing and switching between git branches.</Description>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/xenial-io/Xenial.Branchy</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/xenial-io/Xenial.Branchy</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
