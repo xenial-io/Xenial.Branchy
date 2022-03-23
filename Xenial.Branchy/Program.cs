@@ -15,7 +15,7 @@ try
         c.SetApplicationName("branchy");
         c.ValidateExamples();
 
-        //c.AddCommand<Xenial.Cli.Commands.BuildCommand>("build");
+        c.AddCommand<CleanOrphanedBranchesCommand>("cleanup");
         //c.AddCommand<Xenial.Cli.Commands.ModelCommand>("model");
     });
 

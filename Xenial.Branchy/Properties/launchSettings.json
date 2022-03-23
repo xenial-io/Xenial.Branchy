@@ -1,8 +1,13 @@
-{
+﻿{
   "profiles": {
-    "Xenial.Branchy": {
+    "branchy": {
       "commandName": "Project",
       "workingDirectory": "C:\\f\\git\\Xenial.Framework"
+    },
+    "cleanup": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\f\\git\\Xenial.Framework",
+      "commandLineArgs": "cleanup"
     }
   }
 }

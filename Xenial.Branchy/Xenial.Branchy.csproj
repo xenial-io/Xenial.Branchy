@@ -3,7 +3,7 @@
   <PropertyGroup>
     <MinVerTagPrefix>v</MinVerTagPrefix>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFrameworks>net5.0;net6.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	<GenerateDocumentationFile>false</GenerateDocumentationFile>
@@ -28,6 +28,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Humanizer.Core" Version="2.14.1" />
     <PackageReference Include="SimpleExec" Version="9.1.0" />
     <PackageReference Include="Spectre.Console" Version="0.43.0" />
   </ItemGroup>

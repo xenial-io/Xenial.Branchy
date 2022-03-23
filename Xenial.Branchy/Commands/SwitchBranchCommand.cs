@@ -9,6 +9,7 @@ using Spectre.Console;
 using Spectre.Console.Cli;
 
 using static SimpleExec.Command;
+using static Xenial.Branchy.Helpers.ConsoleUtils;
 
 namespace Xenial.Branchy.Commands;
 
@@ -101,14 +102,5 @@ internal class SwitchBranchCommand : AsyncCommand<SwitchBranchCommand.SwitchBran
         AnsiConsole.MarkupLine("[green]\\(^ . ^)/[/]");
 
         return 0;
-    }
-
-    private static void HandleError(string? errors)
-    {
-        if (!string.IsNullOrWhiteSpace(errors))
-        {
-            AnsiConsole.MarkupLine($"[red]{errors.EscapeMarkup()}[/]");
-            Environment.Exit(1);
-        }
     }
 }
